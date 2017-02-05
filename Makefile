@@ -9,5 +9,3 @@ dmh.o: dmh.cpp dmh.h
 
 clean:
 	rm -f *.o *.gch dilemmamh-cli
-
-

@@ -25,8 +25,6 @@ using namespace std;
 int main(int argc, char *argv[]){
 	int n=1000;	// numero di iterazioni
 	char t='r';  // tipo di scelta
-	int numero_successi=0, numero_scambi=0, numero_successi_con_scambio=0,
-        numero_successi_senza_scambio=0, i=0;
 	int opt_char;
 	while ((opt_char=getopt(argc, argv, "n:t:h"))!=-1)
         switch(opt_char){
@@ -46,9 +44,10 @@ int main(int argc, char *argv[]){
         case 'a': cout << "(scelta accettata alternativamente)" << endl; break;
         default: cout << "(tipo di scelta non prevista)" << endl; return -1;}
     dmh dmhObj;
-    dmhObj.elabora(n,t, &i, &numero_successi, &numero_scambi, &numero_successi_con_scambio,
-        &numero_successi_senza_scambio);
-	cout << "Iterazioni: "<< i << "; scambi: "<< numero_scambi << "; successi: "<< numero_successi << endl;
-    cout << "di cui con scambio: " << numero_successi_con_scambio << "; senza scambio: "<< numero_successi_senza_scambio << endl;
+    dmhObj.elabora(n,t);
+	cout << "Iterazioni: "<< dmhObj.get_i() << "; scambi: "<< dmhObj.get_nsc()
+        << "; successi: "<< dmhObj.get_nsu()  << endl;
+    cout << "di cui con scambio: " << dmhObj.get_nsucs()
+        << "; senza scambio: "<< dmhObj.get_nsuss() << endl;
 	return 0;
 }

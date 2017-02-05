@@ -31,10 +31,9 @@ string dmh::guida() {
             "               m: accettata mai                a: accettata in modo alternato\n";
 }
 
-void dmh::elabora(int nite, char t, int *i, int *numero_successi, int *numero_scambi, int *numero_successi_con_scambio,
-        int *numero_successi_senza_scambio){
-    int x, y, z, c, ii;
-    for (*i=0; *i<nite; (*i)++) {
+void dmh::elabora(int nite, char t){
+    int x, y, z, c;
+    for (i=0; i<nite; i++) {
         x=scelta(3);		// ok
         y=scelta(3);		// tentativo
         z=escludi_vera(x,y);
@@ -44,16 +43,16 @@ void dmh::elabora(int nite, char t, int *i, int *numero_successi, int *numero_sc
         } else if(t=='s') c=y;
         else if (t=='m') c=terza_scelta(y,z);
         else if (t=='a') {
-            if (*i%2) c=y;
+            if (i%2) c=y;
             else c=terza_scelta(y,z);
         }
         if (x==c) {
-            (*numero_successi)++;
+            numero_successi++;
             if(y!=c) {
-                (*numero_successi_con_scambio)++;
-            } else (*numero_successi_senza_scambio)++;
+                numero_successi_con_scambio++;
+            } else numero_successi_senza_scambio++;
         }
-        if (y!=c) (*numero_scambi)++;
+        if (y!=c) numero_scambi++;
     }
 }
 
@@ -80,4 +79,14 @@ int dmh::escludi_vera(int x, int y) {			// sceglie un numero sbagliato
 }
 
 dmh::dmh() {
+    this->numero_scambi=0;
+    this->numero_successi=0;
+    this->numero_successi_con_scambio=0;
+    this->numero_successi_senza_scambio=0;
 }
+
+int dmh::get_nsc() { return this->numero_scambi;}
+int dmh::get_nsu() { return this->numero_successi;}
+int dmh::get_nsucs() { return this->numero_successi_con_scambio; }
+int dmh::get_nsuss() { return this->numero_successi_senza_scambio; }
+int dmh::get_i() { return this->i; }

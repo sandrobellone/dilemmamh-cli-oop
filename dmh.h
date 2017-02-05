@@ -20,9 +20,13 @@ using namespace std;
 
 class dmh {
 public:
-	void elabora(int nite, char t, int *i, int *numero_successi, int *numero_scambi,
-        int *numero_successi_con_scambio, int *numero_successi_senza_scambio);
+	void elabora(int nite, char t);
    	static string guida();
+   	int get_nsu();
+   	int get_nsc();
+   	int get_nsucs();
+   	int get_nsuss();
+   	int get_i();
     dmh();
 private:
 	int scelta (int);
@@ -31,4 +35,6 @@ private:
     std::random_device random_device;
     std::mt19937 random_engine{random_device()};
     std::uniform_int_distribution<int> die_distribution{0, 9999};
+	int numero_successi, numero_scambi, numero_successi_con_scambio,
+        numero_successi_senza_scambio, i;
 };

@@ -1,4 +1,4 @@
-/*!  dilemmamh.c - versione 0.01
+/*!  dilemmamh-cli.cpp - versione 0.01
  *
  *   Copyright 2015 2017 Sandro Bellone
  *

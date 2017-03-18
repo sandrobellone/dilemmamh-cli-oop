@@ -33,6 +33,7 @@ string dmh::guida() {
 
 void dmh::elabora(int nite, char t){
     int x, y, z, c;
+    numero_scambi=numero_successi=numero_successi_con_scambio=numero_successi_senza_scambio=0;
     for (i=0; i<nite; i++) {
         x=scelta(3);		// ok
         y=scelta(3);		// tentativo
